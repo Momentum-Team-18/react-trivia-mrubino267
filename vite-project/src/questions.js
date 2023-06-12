@@ -1,4 +1,5 @@
-{
+export const jsQuiz = {
+
 	"response_code": 0,
 	"results": [
 		{
@@ -121,8 +122,7 @@
 				"Uncharged atoms"
 			]
 		}
-	]
-}
+
 
 {
 	"response_code": 0,
@@ -374,4 +374,6 @@
 			]
 		}
 	]
+}
+    ]
 }
