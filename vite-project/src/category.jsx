@@ -7,25 +7,33 @@ import Quiz from './Quiz'
 function Category() {
     const URL = 'https://opentdb.com/api_category.php'
     const [categories, setCategories] = useState([])
-    // const catURL = `https://opentdb.com/api.php?amount=10&category=${category.id}`
+    const [categoryID, setCategoryID] = useState(null)
 
+    
     useEffect(() => {
     axios.get(URL).then((response) => setCategories(response.data.trivia_categories))}, [])
+    
+    const handleCategoryID = (id) => {
+        setCategoryID(id)
+    }
 
-    console.log(categories[0])
 
+
+    console.log(categoryID)
     return (
     <>
-        <p>Category lives here</p>
+    {categoryID ? <Quiz categoryID={categoryID} /> : 
         <div>
+            <h2>Please Pick a Trivia Category</h2>
             {categories.map(category => (
                 <ul key={category.id}>
-                    <a href={category.id}>{category.name}</a>
+                    <button onClick = {() => handleCategoryID(category.id)}>{category.name}</button>
                 </ul>
             ))}
-        </div>
+        </div>}
     </>
     )
 }
 
 export default Category
+
