@@ -1,16 +1,16 @@
-import './App.css'
-import Category from './category'
-import Quiz from './Quiz'
-import './App.css'
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+import Categories from './Category';
+import Quiz from './Quiz';
 
-function App() {
+const App = () => {
+    const [selectedCategory, setSelectedCategory] = useState('');
 
-    return (
-    <>
-    <Category />
-    <Quiz />
-    </>
-    )
+return (
+    <div>
+    {selectedCategory ? <Quiz categoryID={selectedCategory} categories={Categories} setSelectedCategory={setSelectedCategory} /> : <Categories setSelectedCategory={setSelectedCategory} />}
+    </div>
+);
 }
 
-export default App
+export default App;
